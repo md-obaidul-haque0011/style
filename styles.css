@@ -1,0 +1,47 @@
+@property --hue {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+  }
+  body, div {
+    display: grid;
+  }
+  
+  body {
+    margin: 0;
+    height: 50vh;
+    width: 50vh;
+  }
+  
+  .a3d {
+    --tmp: repeat(var(--n), 2em);
+    grid-template: var(--tmp)/var(--tmp);
+    place-self: center;
+    transform-style: preserve-3d;
+    transform: rotatex(-35.2643896828deg) rotatey(-45deg);
+  }
+  
+  .ball {
+    --m: calc(.5*(var(--n) - 1));
+    --sl: 97%, 63%;
+    grid-area: calc(var(--j) + 1)/calc(var(--i) + 1);
+    border-radius: 50%;
+    --pos:
+        translatez(calc((var(--k) - var(--m))*2em))
+        rotatey(45deg) rotatex(35.2643896828deg);
+    transform: var(--pos) scale(0.1);
+    box-shadow: 0 0 0 2px #000;
+    background-color: hsl(var(--hue), var(--sl));
+    animation: s 0.5s ease-in-out calc(var(--k)/var(--n)*-1s) infinite alternate, c 2s linear calc(((2*var(--j) + var(--i))/var(--n)/3 - 1)*2s) infinite;
+  }
+  
+  @keyframes s {
+    to {
+      transform: var(--pos);
+    }
+  }
+  @keyframes c {
+    to {
+      --hue: 360 ;
+    }
+  }
