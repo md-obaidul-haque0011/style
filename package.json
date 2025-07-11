@@ -1,0 +1,14 @@
+{
+  "name": "simple-style-project",
+  "version": "1.0.0",
+  "description": "A 3D animated ball grid project",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Build complete - static files ready'",
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000"
+  },
+  "keywords": ["3d", "animation", "css", "html"],
+  "author": "",
+  "license": "MIT"
+}
